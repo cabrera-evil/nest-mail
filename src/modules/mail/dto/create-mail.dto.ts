@@ -1,6 +1,6 @@
 export class CreateMailDto {
     to: string;
-    username: string;
     subject: string;
+    username: string;
     resetLink: string;
 }
