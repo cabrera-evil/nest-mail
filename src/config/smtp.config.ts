@@ -6,7 +6,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     imports: [MailerModule.forRoot({
         transport: {
             host: process.env.SMTP_HOST,
-            port: 587,
+            port: Number(process.env.SMTP_PORT),
             secure: false,
             tls: {
                 rejectUnauthorized: false
@@ -17,11 +17,11 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
             }
         },
         defaults: {
-            from: '"cabrera-evil" <douglascabrera.dev@outlook.com>', // outgoing email ID
+            from: `"No Reply" <${process.env.SMTP_HOST_USER}>`
         },
         template: {
             dir: process.cwd() + '/template/',
-            adapter: new HandlebarsAdapter(), // or new PugAdapter()
+            adapter: new HandlebarsAdapter(),
             options: {
                 strict: true,
             },
