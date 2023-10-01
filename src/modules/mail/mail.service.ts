@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMailDto } from './dto/create-mail.dto';
-import { UpdateMailDto } from './dto/update-mail.dto';
 import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
@@ -21,8 +20,7 @@ export class MailService {
 
     return {
       statusCode: '200',
-      message: 'Email sent successfully',
-      data: createMailDto,
+      message: 'Email sent successfully'
     }
   }
 }
